@@ -19,8 +19,9 @@
         <%= article.createdAt.toLocaleDateString() %>
       </div>
       <a href="/" class="btn btn-secondary">Back</a>
+      <% if (auth == true) { %>
       <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
-
+      <% } %>
       <div><%- article.sanitizedHtml %></div>
     </div>
   </body>

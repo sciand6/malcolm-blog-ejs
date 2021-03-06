@@ -19,8 +19,9 @@ app.use(methodOverride("_method"));
 app.use("/articles", articleRouter);
 
 app.get("/", async (req, res) => {
+  let isAdmin = false;
   const articles = await Article.find().sort({ createdAt: "desc" });
-  res.render("articles/index", { articles: articles });
+  res.render("articles/index", { articles: articles, auth: isAdmin });
 });
 
 app.listen(5000);
